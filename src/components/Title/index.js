@@ -1,10 +1,12 @@
 import React from "react";
 
+import './Title.scss'
+
 import hackernews from "../../logos/hackernews.svg";
 
 function Title() {
   return (
-    <div>
+    <div className='title-section'>
       <img src={hackernews} height={20} alt="hackernews" />
     </div>
   );

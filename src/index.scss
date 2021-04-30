@@ -11,3 +11,33 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@mixin flexCenter {
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin mobileStyle {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  justify-items: center;
+  grid-gap: 50px;
+}
+
+@mixin cardButtons {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  top: -8px;
+  right: -8px;
+}
+
+:root {
+  --primary-yellow: #fbc91b;
+  --primary-text: #000000d1;
+  --overlay-grey: #00000080;
+  --light-grey: #f2f2f2;
+}
