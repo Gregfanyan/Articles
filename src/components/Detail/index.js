@@ -1,11 +1,11 @@
 import React from "react";
 
+import "./detail.scss";
+
 function Detail() {
   return (
-    <div>
-      <div>
-        <i class="fa fa-clock-o" aria-hidden="true"></i>1 min ago | 50 comments
-      </div>
+    <div className="detail">
+      <i class="fa fa-clock-o"></i> &nbsp; 1 min ago | 50 comments
     </div>
   );
 }

@@ -1,6 +1,12 @@
 .stories-wrapper {
-  box-shadow: 10px 10px 15px 6px var(--light-grey);
-  margin: 0 auto;
+  box-shadow: 0px 0px 15px 15px var(--light-grey);
   text-align: justify;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
 }

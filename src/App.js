@@ -14,6 +14,8 @@ function App() {
       <Title />
       <Buttons />
       <Stories />
+      <Stories />
+      <Stories />
       <LoadMore />
       <Footer />
     </div>
