@@ -1,12 +1,14 @@
 import React from "react";
-import Buttons from "../../components/Buttons";
+
 import Description from "../../components/Description";
 import Detail from "../../components/Detail";
+import Header from "../../components/Header";
+import './Stories.scss'
 
 function Stories() {
   return (
-    <div>
-      <Buttons />
+    <div className='stories-wrapper'>
+      <Header />
       <Description />
       <Detail />
     </div>
