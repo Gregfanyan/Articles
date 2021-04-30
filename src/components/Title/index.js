@@ -7,7 +7,7 @@ import hackernews from "../../logos/hackernews.svg";
 function Title() {
   return (
     <div className='title-section'>
-      <img src={hackernews} height={20} alt="hackernews" />
+      <img src={hackernews} height={25} alt="hackernews" />
     </div>
   );
 }
