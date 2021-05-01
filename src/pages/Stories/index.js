@@ -12,6 +12,9 @@ function Stories({ storyId }) {
 
   useEffect(() => {
     getTopStories(storyId).then((response) => setStory(response));
+    return () => {
+      setStory({});
+    };
   }, [storyId]);
 
   return (

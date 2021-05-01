@@ -2,11 +2,29 @@ import React from "react";
 
 import "./buttons.scss";
 
-function Buttons() {
+function Buttons({ changeUrlhandleCLick, isClicked }) {
   return (
     <div className="buttons-section">
-      <button className="buttons-section__button">new</button>
-      <button className="buttons-section__button">past</button>
+      <button
+        onClick={changeUrlhandleCLick}
+        className={
+          !isClicked
+            ? "buttons-section__active-button"
+            : "buttons-section__inactive-button"
+        }
+      >
+        new
+      </button>
+      <button
+        onClick={changeUrlhandleCLick}
+        className={
+          isClicked
+            ? "buttons-section__active-button"
+            : "buttons-section__inactive-button"
+        }
+      >
+        past
+      </button>
     </div>
   );
 }

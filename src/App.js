@@ -1,4 +1,4 @@
-import React /* , { useState } */ from "react";
+import React, { useState, useEffect } from "react";
 
 import Title from "./components/Title";
 import Stories from "./pages/Stories";
@@ -10,22 +10,28 @@ import useStories from "./hooks/useStories";
 import "./App.scss";
 
 function App() {
-  const [topStoryIds, bestStoryIds] = useStories();
+  const [topStoryIds, bestStoryIds, isClicked, setIsClicked] = useStories();
+  const [currentStoryId, setCurrentStoryId] = useState([]);
 
-  /*   const [story, setStory] = useState([]);
+  const changeUrlhandleCLick = () => {
+    setIsClicked(!isClicked);
+  };
 
-  React.useEffect(() => {
-    storyIds.forEach((storyId) =>
-      getTopStories(storyId).then((response) => setStory(response))
-    );
-  }, []); */
+  useEffect(() => {
+    isClicked
+      ? setCurrentStoryId(bestStoryIds)
+      : setCurrentStoryId(topStoryIds);
+  }, [topStoryIds, bestStoryIds, isClicked]);
 
   return (
     <div className="App">
       <Title />
-      <Buttons />
-      {topStoryIds &&
-        topStoryIds
+      <Buttons
+        changeUrlhandleCLick={changeUrlhandleCLick}
+        isClicked={isClicked}
+      />
+      {currentStoryId &&
+        currentStoryId
           .slice(0, 3)
           .map((storyId) => <Stories storyId={storyId} key={storyId} />)}
       <LoadMore />
