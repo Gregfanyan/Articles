@@ -4,4 +4,7 @@
   font-weight: normal;
   font-style: normal;
   color: var(--description-text);
+  max-width: fit-content;
+  height: 4rem;
+  overflow: auto;
 }

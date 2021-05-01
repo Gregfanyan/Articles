@@ -3,9 +3,8 @@ import axios from "axios";
 
 function useStories() {
   const [storyIds, setStoryIds] = useState([]);
-  const [story, setStory] = useState([]);
   const baseUrl = "https://hacker-news.firebaseio.com/v0/";
-  const topStoriesUrl = `${baseUrl}newstories.json`;
+  const topStoriesUrl = `${baseUrl}topstories.json`;
   const storyUrl = `${baseUrl}item/`;
 
   const fetchTopStory = async (storyId) => {

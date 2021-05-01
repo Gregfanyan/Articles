@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import Title from "./components/Title";
 import Stories from "./pages/Stories";
@@ -11,28 +11,21 @@ import "./App.scss";
 
 function App() {
   const [storyIds, fetchTopStory] = useStories();
-  //console.log(storyIds);
 
-  //console.log(fetchTopStory(27001961));
-
-  /*   useEffect(() => {
-    fetchTopStory(27004534).then((response) => console.log("check", response));
-  }, []); */
+  //console.log("test random", storyIds[Math.floor(Math.random() * 3)]);
 
   return (
     <div className="App">
       <Title />
       <Buttons />
       {storyIds &&
-        storyIds
-          .slice(0, 3)
-          .map((storyId) => (
-            <Stories
-              storyId={storyId}
-              key={storyId}
-              fetchTopStory={fetchTopStory}
-            />
-          ))}
+        storyIds.map((storyId) => (
+          <Stories
+            storyId={storyId}
+            key={storyId}
+            fetchTopStory={fetchTopStory}
+          />
+        ))}
       <LoadMore />
       <Footer />
     </div>
