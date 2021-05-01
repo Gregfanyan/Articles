@@ -1,18 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Description from "../../components/Description";
 import Detail from "../../components/Detail";
 import Header from "../../components/Header";
-import "./Stories.scss";
+import { getTopStories } from "../../Services/api";
+import "./stories.scss";
 
-function Stories({ storyId, fetchTopStory }) {
+function Stories({ storyId }) {
   const [story, setStory] = React.useState({});
-
-  React.useEffect(() => {
-    fetchTopStory(storyId).then((response) => setStory(response));
-  }, [fetchTopStory, storyId]);
-
   const { title, text, url, time } = story;
+
+  useEffect(() => {
+    getTopStories(storyId).then((response) => setStory(response));
+  }, [storyId]);
 
   return (
     <div className="stories-wrapper">
