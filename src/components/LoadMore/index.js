@@ -2,10 +2,10 @@ import React from "react";
 
 import "./loadMore.scss";
 
-function LoadMore() {
+function LoadMore({handleShowMorePosts}) {
   return (
     <div className="loadMore">
-      <button className="loadMore__btn">load more</button>
+      <button onClick={handleShowMorePosts} className="loadMore__btn">load more</button>
     </div>
   );
 }

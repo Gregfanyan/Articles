@@ -8,7 +8,7 @@ function Buttons({ changeUrlhandleCLick, isClicked }) {
       <button
         onClick={changeUrlhandleCLick}
         className={
-          !isClicked
+          isClicked
             ? "buttons-section__active-button"
             : "buttons-section__inactive-button"
         }
@@ -18,7 +18,7 @@ function Buttons({ changeUrlhandleCLick, isClicked }) {
       <button
         onClick={changeUrlhandleCLick}
         className={
-          isClicked
+          !isClicked
             ? "buttons-section__active-button"
             : "buttons-section__inactive-button"
         }
