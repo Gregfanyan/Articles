@@ -1,7 +1,28 @@
-import React from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 function useStories() {
-  return <div>useStories</div>;
+  const [storyIds, setStoryIds] = useState([]);
+  const [story, setStory] = useState([]);
+  const baseUrl = "https://hacker-news.firebaseio.com/v0/";
+  const topStoriesUrl = `${baseUrl}newstories.json`;
+  const storyUrl = `${baseUrl}item/`;
+
+  const fetchTopStory = async (storyId) => {
+    return await axios
+      .get(`${storyUrl}${storyId}.json`)
+      .then(({ data }) => data)
+      .catch((e) => console.log("error"));
+  };
+
+  useEffect(() => {
+    axios
+      .get(topStoriesUrl)
+      .then((response) => response && setStoryIds(response.data))
+      .catch((e) => console.log("error"));
+  }, []);
+
+  return [storyIds, fetchTopStory];
 }
 
 export default useStories;
