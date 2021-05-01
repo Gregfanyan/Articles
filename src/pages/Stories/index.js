@@ -10,14 +10,9 @@ function Stories({ storyId, fetchTopStory }) {
 
   React.useEffect(() => {
     fetchTopStory(storyId).then((response) => setStory(response));
-  }, []);
-
-  //const stories = story.slice(0, 3);
-  //console.log(story);
+  }, [fetchTopStory, storyId]);
 
   const { title, text, url, time } = story;
-
-  console.log("story", story);
 
   return (
     <div className="stories-wrapper">

@@ -19,7 +19,7 @@ function useStories() {
       .get(topStoriesUrl)
       .then((response) => response && setStoryIds(response.data))
       .catch((e) => console.log("error"));
-  }, []);
+  }, [topStoriesUrl]);
 
   return [storyIds, fetchTopStory];
 }

@@ -6,7 +6,7 @@ import "./detail.scss";
 function Detail({ time }) {
   return (
     <div className="detail">
-      <i class="fa fa-clock-o"></i> &nbsp; {mapTime(time)} ago | 50 comments
+      <i className="fa fa-clock-o"></i> &nbsp; {mapTime(time)} ago | 50 comments
     </div>
   );
 }
