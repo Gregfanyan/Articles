@@ -5,31 +5,26 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: "Open Sans", sans-serif;
-}
-
 @mixin flexCenter {
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
-@mixin mobileStyle {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  justify-items: center;
-  grid-gap: 50px;
-}
-
-@mixin cardButtons {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
+@mixin buttonStyle {
+  border-radius: 15px;
   border: none;
   cursor: pointer;
-  top: -8px;
-  right: -8px;
+  font-size: 16px;
+  font-weight: bold;
+  font-style: normal;
+  font-family: "Open Sans", sans-serif;
+  text-transform: capitalize;
+  color: #2e2e2e;
+}
+
+@mixin yellowBackground {
+  background-color: var(--primary-yellow);
 }
 
 :root {
@@ -37,5 +32,6 @@ code {
   --primary-text: #808080;
   --overlay-grey: #00000080;
   --light-grey: #f2f2f2;
-  --description-text: #2E2E2E;
+  --description-text: #2e2e2e;
+  --header-color: #2e2e2e;
 }

@@ -1,9 +1,11 @@
+@import "../../index.scss";
+
 .footer {
-  display: flex;
+  @include flexCenter;
   margin-top: 15px;
-  background-color: var(--primary-yellow);
+  @include yellowBackground;
   padding: 30px;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
+  &__img {
+    cursor: pointer;
+  }
 }

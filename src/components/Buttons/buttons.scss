@@ -8,18 +8,11 @@
   border: none;
 
   &__button {
-    border-radius: 20px;
     width: 60px;
     height: 30px;
-    cursor: pointer;
     margin-right: 5px;
-    border: none;
-    background-color: var(--primary-yellow);
-    font-size: 16px;
-    font-weight: bold;
-    text-transform: capitalize;
-    font-style: normal;
-    font-family: "Open Sans", sans-serif;
+    @include yellowBackground;
+    @include buttonStyle;
   }
   &__button:last-child {
     background-color: var(--light-grey);
