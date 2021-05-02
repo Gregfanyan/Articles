@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
 import Title from "./components/Title";
 import Stories from "./pages/Stories";
@@ -10,29 +10,33 @@ import "./App.scss";
 
 function App() {
   const storiesPerPage = 3;
-  let arrayForHoldingStories = [];
   const [topStoryIds, bestStoryIds, isClicked, setIsClicked] = useStories();
   const [currentStoryId, setCurrentStoryId] = useState([]);
   const [storiesToShow, setStoriesToShow] = useState([]);
   const [next, setNext] = useState(3);
 
-  const changeUrlhandleCLick = () => {
-    setIsClicked(!isClicked);
-  };
-
   const loopWithSlice = (start, end) => {
-    const slicedStories = currentStoryId.slice(start, end);
-    arrayForHoldingStories = [...arrayForHoldingStories, ...slicedStories];
-    setStoriesToShow(arrayForHoldingStories);
+    const toShow = topStoryIds.slice(
+      storiesToShow.length,
+      storiesToShow.length + storiesPerPage
+    );
+    setStoriesToShow([...storiesToShow, ...toShow]);
   };
 
   useEffect(() => {
-    loopWithSlice(0, storiesPerPage);
-  }, [currentStoryId]);
+    if (topStoryIds) {
+      loopWithSlice();
+    }
+  }, [topStoryIds]);
 
   const handleShowMorePosts = () => {
-    loopWithSlice(next, next + storiesPerPage);
+    let loadedMore = next + storiesPerPage;
+    loopWithSlice(next, loadedMore);
     setNext(next + storiesPerPage);
+  };
+
+  const changeUrlhandleCLick = () => {
+    setIsClicked(!isClicked);
   };
 
   useEffect(() => {
