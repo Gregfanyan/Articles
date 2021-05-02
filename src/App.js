@@ -16,7 +16,7 @@ function App() {
   const [next, setNext] = useState(3);
 
   const loopWithSlice = (start, end) => {
-    const toShow = topStoryIds.slice(
+    const toShow = currentStoryId.slice(
       storiesToShow.length,
       storiesToShow.length + storiesPerPage
     );
@@ -25,9 +25,9 @@ function App() {
 
   useEffect(() => {
     if (topStoryIds) {
-      loopWithSlice();
+      setStoriesToShow(currentStoryId.slice(0, storiesPerPage));
     }
-  }, [topStoryIds]);
+  }, [topStoryIds, currentStoryId]);
 
   const handleShowMorePosts = () => {
     let loadedMore = next + storiesPerPage;
