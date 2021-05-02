@@ -21,6 +21,7 @@ A frontend application that fetches the data from HackerNews API featuring multi
 ## Technologies
 
 - React.js
+- axios
 - SCSS
 - BEM
 

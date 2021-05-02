@@ -12,6 +12,7 @@ function Buttons({ changeUrlhandleCLick, isClicked }) {
             ? "buttons-section__active-button"
             : "buttons-section__inactive-button"
         }
+        disabled={isClicked}
       >
         new
       </button>
@@ -22,6 +23,7 @@ function Buttons({ changeUrlhandleCLick, isClicked }) {
             ? "buttons-section__active-button"
             : "buttons-section__inactive-button"
         }
+        disabled={!isClicked}
       >
         past
       </button>
