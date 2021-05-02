@@ -15,6 +15,7 @@ function App() {
   const [storiesToShow, setStoriesToShow] = useState([]);
   const [next, setNext] = useState(3);
 
+  //defining the function will take the initial state and add 3 more stories
   const loopWithSlice = (start, end) => {
     const toShow = currentStoryId.slice(
       storiesToShow.length,
@@ -29,16 +30,19 @@ function App() {
     }
   }, [topStoryIds, currentStoryId]);
 
-  const handleShowMorePosts = () => {
+  //handleShowMoreStories for loading more articles 
+  const handleShowMoreStories = () => {
     let loadedMore = next + storiesPerPage;
     loopWithSlice(next, loadedMore);
     setNext(next + storiesPerPage);
   };
 
+  //changing the URL onClick
   const changeUrlhandleCLick = () => {
     setIsClicked(!isClicked);
   };
 
+  //changing the URL based on the boolean
   useEffect(() => {
     isClicked
       ? setCurrentStoryId(bestStoryIds)
@@ -56,7 +60,7 @@ function App() {
         storiesToShow.map((storyId) => (
           <Stories storyId={storyId} key={storyId} />
         ))}
-      <LoadMore handleShowMorePosts={handleShowMorePosts} />
+      <LoadMore handleShowMoreStories={handleShowMoreStories} />
       <Footer />
     </div>
   );

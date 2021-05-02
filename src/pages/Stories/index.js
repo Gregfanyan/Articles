@@ -3,15 +3,17 @@ import React, { useEffect } from "react";
 import Description from "../../components/Description";
 import Detail from "../../components/Detail";
 import Header from "../../components/Header";
-import { getTopStories } from "../../Services/api";
+import { getStories } from "../../Services/api";
 import "./stories.scss";
 
 function Stories({ storyId }) {
   const [story, setStory] = React.useState({});
   const { title, text, url, time } = story;
 
+  //getStories function takes storyId as a distructured props and returns the stories 
+  //either top or best stories depending on the click(changeUrlhandleCLick function)
   useEffect(() => {
-    getTopStories(storyId).then((response) => setStory(response));
+    getStories(storyId).then((response) => setStory(response));
     return () => {
       setStory({});
     };

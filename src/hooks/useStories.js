@@ -7,6 +7,7 @@ function useStories() {
   const [bestStoryIds, setBestStoryIds] = useState([]);
   const [isClicked, setIsClicked] = useState(false);
 
+//fetching the data from topstories api
   useEffect(() => {
     axios
       .get(topStoriesUrl)
@@ -17,6 +18,7 @@ function useStories() {
       .catch((e) => console.log("error"));
   }, []);
 
+//fetching the data from beststories api
   useEffect(() => {
     axios
       .get(bestStoriesUrl)
